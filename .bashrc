@@ -34,3 +34,7 @@ lydia-run() {
 lydia() {
     docker compose -f "$GATEWAY_HOME/docker-compose.yml" "$@"
 }
+
+export SCRIPTS_DIR="$LYDIA_ROOT/scripts"
+
+source "$SCRIPTS_DIR/lydia-http.sh"
