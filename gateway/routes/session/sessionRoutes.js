@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const sessionOperations = require('./sessionOperations')
 const jwt = require('jsonwebtoken')
-const jwtSecret = 'your-secret-key'
+const jwtSecret = process.env.JWT_SECRET
 
 router.post('/new', function (req, res, next) {
   const { email } = req.body

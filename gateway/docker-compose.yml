@@ -6,6 +6,7 @@ services:
     image: lydia-gateway
     environment:
       - PORT=1337
+      - JWT_SECRET=secret-key-should-be-long
     ports:
       - '1337:1337'
     command: npm run watch
