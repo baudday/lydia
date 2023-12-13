@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  gateway:
+    container_name: lydia-gateway
+    image: lydia-gateway
+    environment:
+      - PORT=1337
+    ports:
+      - '1337:1337'
+    command: npm run watch
+    volumes:
+      - .:/app
+      - '/app/node_modules/'
