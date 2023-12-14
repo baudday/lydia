@@ -7,7 +7,7 @@ lydia-post() {
         HEADERS+=( "Authorization: Bearer $LYDIA_TOKEN" )
     fi
 
-    local COMMAND="curl -X POST"
+    local COMMAND="curl -sX POST"
     
     for header in "${HEADERS[@]}"; do
         COMMAND+=" -H '$header'"
@@ -16,5 +16,8 @@ lydia-post() {
     COMMAND+=" -d '$DATA'"
     COMMAND+=" 'http://localhost:1337$ROUTE'"
 
-    eval "$COMMAND"
+    local RESPONSE="$(eval "$COMMAND")"
+    local EMPTY_OBJECT="{}"
+
+    echo "${RESPONSE:-$EMPTY_OBJECT}" | python3 -m json.tool
 }

@@ -9,7 +9,9 @@ router.post('/new', function (req, res, next) {
 
   const accessCode = sessionOperations.makeAccessCode(email)
 
-  res.json({ accessCode })
+  console.log(accessCode)
+
+  res.status(204).send()
 })
 
 router.post('/create', function (req, res, next) {
