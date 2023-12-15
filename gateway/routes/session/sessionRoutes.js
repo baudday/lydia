@@ -7,9 +7,11 @@ const jwtSecret = process.env.JWT_SECRET
 router.post('/new', function (req, res, next) {
   const { email } = req.body
 
+  console.log('body', req.body)
+
   const accessCode = sessionOperations.makeAccessCode(email)
 
-  console.log(accessCode)
+  console.log('code', accessCode)
 
   res.status(204).send()
 })
