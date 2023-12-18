@@ -7,9 +7,12 @@ class MyExplanation extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      text,
-      style: Theme.of(context).textTheme.bodyMedium,
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 80),
+      child: Text(
+        text,
+        style: Theme.of(context).textTheme.bodySmall,
+      ),
     );
   }
 }

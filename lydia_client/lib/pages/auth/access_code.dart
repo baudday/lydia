@@ -72,7 +72,7 @@ class AccessCodePage extends StatelessWidget {
               const MyH1('Tulsa Gold & Gems'),
               const SizedBox(height: 20),
               const MyExplanation(
-                  'You should have received an email with an access code. Please enter it below.'),
+                  'You should have received an email with a six digit access code which expires in 15 minutes. Please enter it below. If you did not receive an email, please check your spam folder. You can go back to the previous page to try again.'),
               const SizedBox(height: 40),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
