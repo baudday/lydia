@@ -17,7 +17,7 @@ class SignInPage extends StatelessWidget {
 
     var currentContext = context;
 
-    signIn() async {
+    Future signIn() async {
       var url = Uri.parse('http://localhost:1337/session/new');
       await http.post(url,
           body: json.encode({'email': emailController.text}),
@@ -25,12 +25,6 @@ class SignInPage extends StatelessWidget {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
           });
-
-      // go to access code page
-      Navigator.push(
-          currentContext,
-          MaterialPageRoute(
-              builder: (c) => AccessCodePage(emailController.text)));
     }
 
     return Scaffold(
@@ -47,7 +41,12 @@ class SignInPage extends StatelessWidget {
                   controller: emailController,
                   onChanged: (value) => {emailController.text = value}),
               const SizedBox(height: 20),
-              MyButton('Sign In', onPressed: signIn, icon: Icons.login),
+              MyButton('Sign In', onPressed: () {
+                signIn();
+                Navigator.of(currentContext).push(MaterialPageRoute(
+                    builder: (context) =>
+                        AccessCodePage(emailController.text)));
+              }, icon: Icons.login),
             ],
           ),
         ),

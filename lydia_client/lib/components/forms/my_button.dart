@@ -6,9 +6,13 @@ class MyButton extends StatelessWidget {
   final IconData? icon;
   final bool secondary;
 
-  const MyButton(this.text,
-      {Key? key, required this.onPressed, this.icon, this.secondary = false})
-      : super(key: key);
+  const MyButton(
+    this.text, {
+    Key? key,
+    required this.onPressed,
+    this.icon,
+    this.secondary = false,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
