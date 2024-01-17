@@ -9,9 +9,13 @@ router.post('/new', function (req, res, next) {
 
   const accessCode = sessionOperations.makeAccessCode(email)
 
+  if (!accessCode) {
+    return res.status(404).json({ error: 'User not found.' })
+  }
+
   console.log(req.body.email, '-', accessCode)
 
-  res.status(204).send()
+  res.status(200).send({ accessCode })
 })
 
 router.post('/create', function (req, res, next) {

@@ -41,7 +41,7 @@ const authenticateUser = function (email, accessCode) {
     return
   }
 
-  const code = accessCodes.find(ac => ac.userId === user.id && ac.code === accessCode)
+  const code = accessCodes.find(ac => ac.userId === user.id && ac.code.toLowerCase() === accessCode.toLowerCase())
 
   if (!code) {
     // throw new UnauthorizedError('Invalid access code.')
