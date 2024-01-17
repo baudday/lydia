@@ -6,6 +6,21 @@ const users = [
     id: 1,
     name: 'Willem Ellis',
     email: 'willem.ellis@gmail.com'
+  },
+  {
+    id: 2,
+    name: 'Ryan Reyes',
+    email: 'ryan@tulsagold.com'
+  },
+  {
+    id: 3,
+    name: 'Jorge Vega',
+    email: 'vega@tulsagold.com'
+  },
+  {
+    id: 4,
+    name: 'Spencer Fisher',
+    email: 'sfisher@tulsagold.com'
   }
 ]
 
