@@ -37,9 +37,7 @@ class SignInPage extends StatelessWidget {
               const SizedBox(height: 20),
               const MyExplanation('Welcome! Please sign in below.'),
               const SizedBox(height: 40),
-              MyTextField('Email',
-                  controller: emailController,
-                  onChanged: (value) => {emailController.text = value}),
+              MyTextField('Email', controller: emailController),
               const SizedBox(height: 20),
               MyButton('Sign In', onPressed: () {
                 signIn();

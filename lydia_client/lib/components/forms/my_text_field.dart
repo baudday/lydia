@@ -4,14 +4,14 @@ class MyTextField extends StatelessWidget {
   final String labelText;
   final bool obscureText;
   final TextInputType keyboardType;
-  final Function(String) onChanged;
+  final Function(String)? onChanged;
   final TextEditingController controller;
 
   const MyTextField(
     this.labelText, {
     Key? key,
     required this.controller,
-    required this.onChanged,
+    this.onChanged,
     this.obscureText = false,
     this.keyboardType = TextInputType.text,
   }) : super(key: key);

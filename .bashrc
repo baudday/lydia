@@ -1,12 +1,8 @@
-export GATEWAY_HOME="$LYDIA_ROOT/gateway"
-
 lydia-build() {
-    OPTIONS="$@"
-
     printf '\n# Building lydia-gateway...\n\n'
     sleep 1
 
-    docker build -t lydia-gateway "$GATEWAY_HOME"
+    docker build -t lydia-gateway "$LYDIA_ROOT"
 }
 
 lydia-up() {
@@ -28,11 +24,11 @@ lydia-logs() {
 }
 
 lydia-run() {
-    lydia run lydia-gateway "$@"
+    lydia run gateway "$@"
 }
 
 lydia() {
-    docker compose -f "$GATEWAY_HOME/docker-compose.yml" "$@"
+    docker compose -f "$LYDIA_ROOT/docker-compose.yml" "$@"
 }
 
 export SCRIPTS_DIR="$LYDIA_ROOT/scripts"
