@@ -17,7 +17,8 @@ class SignInPage extends StatelessWidget {
     final emailController = TextEditingController();
 
     Future<dynamic> signIn() async {
-      var url = Uri.parse('https://lydia-qg36zi7ora-uc.a.run.app/session/new');
+      var url =
+          Uri.parse('${const String.fromEnvironment('API_URL')}/session/new');
       var response = await http.post(url,
           body: json.encode({'email': emailController.text}),
           headers: {

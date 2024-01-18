@@ -28,8 +28,8 @@ class AccessCodePage extends StatelessWidget {
     ];
 
     Future<String?> authenticate() async {
-      var url =
-          Uri.parse('https://lydia-qg36zi7ora-uc.a.run.app/session/create');
+      var url = Uri.parse(
+          '${const String.fromEnvironment('API_URL')}/session/create');
       var response = await http.post(url,
           body: json.encode({
             'email': email,
