@@ -11,6 +11,6 @@ services:
       - '1337:1337'
     command: npm run watch
     volumes:
-      - ./gateway:/app
+      - ./:/app
       - '/app/node_modules/'
-      - './lydia_client/build/web:/app/public'
+      - './lydia_client/build/web:/app/gateway/public'

@@ -39,8 +39,6 @@ app.use(function (err, req, res, next) {
   next(err)
 })
 
-app.use(express.static(path.join(__dirname, '../')))
-
 app.use(function (req, res, next) {
   res.status(404).json({ message: 'Not found' })
   next()

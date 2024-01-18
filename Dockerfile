@@ -3,11 +3,12 @@ WORKDIR /app
 
 RUN apt-get update
 
-COPY ./gateway/package*.json .
+COPY ./package*.json ./
+
 RUN npm install
 
-COPY ./lydia_client/build/web /app/public
+COPY ./ /app/
 
-COPY . .
+COPY ./lydia_client/build/web/ /app/gateway/public/
 
 CMD [ "npm", "start" ]

@@ -2,7 +2,7 @@ lydia-build() {
     printf '\n# Building lydia-gateway...\n\n'
     sleep 1
 
-    docker build -t lydia-gateway "$LYDIA_ROOT"
+    docker build --no-cache -t lydia-gateway "$LYDIA_ROOT"
 }
 
 lydia-up() {
@@ -29,6 +29,16 @@ lydia-run() {
 
 lydia() {
     docker compose -f "$LYDIA_ROOT/docker-compose.yml" "$@"
+}
+
+lydia-deploy() {
+    echo "Building Flutter web app..."
+    cd "$LYDIA_ROOT/lydia_client"
+    flutter build web --web-renderer canvaskit --release
+    cd "$LYDIA_ROOT"
+
+    echo "Deploying to Cloud Run..."
+    gcloud run deploy --source "$LYDIA_ROOT" --update-env-vars JWT_SECRET=$(openssl rand -base64 40)
 }
 
 export SCRIPTS_DIR="$LYDIA_ROOT/scripts"
