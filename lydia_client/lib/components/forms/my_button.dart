@@ -25,8 +25,7 @@ class MyButton extends StatelessWidget {
             : Theme.of(context).colorScheme.primary,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       ),
-      child: Expanded(
-          child: Row(
+      child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         mainAxisSize: MainAxisSize.min,
         children: [
@@ -34,7 +33,7 @@ class MyButton extends StatelessWidget {
           SizedBox(width: icon != null ? 5 : 0),
           icon != null ? Icon(icon) : const SizedBox(),
         ],
-      )),
+      ),
     );
   }
 }

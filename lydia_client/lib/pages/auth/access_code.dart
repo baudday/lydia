@@ -8,7 +8,6 @@ import 'package:http/http.dart' as http;
 import 'package:lydia_client/components/my_snackbar.dart';
 import 'package:lydia_client/components/typography/my_explanation.dart';
 import 'package:lydia_client/components/typography/my_h1.dart';
-import 'package:lydia_client/pages/home_page.dart';
 import 'package:lydia_client/providers/auth_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -29,7 +28,8 @@ class AccessCodePage extends StatelessWidget {
     ];
 
     Future<String?> authenticate() async {
-      var url = Uri.parse('http://localhost:1337/session/create');
+      var url = Uri.parse(
+          '${const String.fromEnvironment('API_URL')}/session/create');
       var response = await http.post(url,
           body: json.encode({
             'email': email,
@@ -48,6 +48,8 @@ class AccessCodePage extends StatelessWidget {
     }
 
     setAccessCode(k, String value) {
+      value = value.toUpperCase();
+
       if (value.length < 2) {
         accessCode[k].text = value;
       } else {
@@ -117,6 +119,8 @@ class AccessCodePage extends StatelessWidget {
                                                 Theme.of(context).primaryColor,
                                           ));
                                           Navigator.pop(context);
+                                          ScaffoldMessenger.of(context)
+                                              .clearMaterialBanners();
                                         }
                                       });
                                     } else {
